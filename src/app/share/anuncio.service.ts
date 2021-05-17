@@ -111,15 +111,23 @@ export class AnuncioService {
 
     );
 
-    //if (filtro.inicio && filtro.termino && filtro.cliente) {
+    if (filtro.inicio && filtro.termino && filtro.cliente) {
       return this.anuncios.filter((anuncio) => {
-        return anuncio.cliente == "Paulo";
+        return anuncio.cliente == filtro.cliente && anuncio.inicio >= filtro.inicio && anuncio.termino <= filtro.termino;
       });
-    //}
-
-    //Receber dados do filtro.
-    //Filtrar dados. Cliente, Data inicio, Data Término
-
+    }
+    
+    else if (filtro.inicio && filtro.termino && !filtro.cliente) {
+      return this.anuncios.filter((anuncio) => {
+        return anuncio.inicio >= filtro.inicio && anuncio.termino <= filtro.termino;
+      });
+    }
+  
+    else if (!filtro.inicio && !filtro.termino && filtro.cliente) {
+      return this.anuncios.filter((anuncio) => {
+        return anuncio.cliente == filtro.cliente;
+      });
+    }
 
     return this.anuncios;
   }
