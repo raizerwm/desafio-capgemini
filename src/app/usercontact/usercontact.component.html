@@ -1,0 +1,30 @@
+<div class="anuncio-list">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usercon of anuncios">
+        <td>{{ usercon.id }}</td>
+        <td>{{ usercon.firstname }}</td>
+        <td>{{ usercon.lastname }}</td>
+        <td>{{ usercon.email }}</td>
+        <td>
+          <button class=" btn btn-primary " (click)="editUsercontact(usercon) ">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger ml-2 " (click)="deleteUsercontact(usercon) ">Delete</button>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>

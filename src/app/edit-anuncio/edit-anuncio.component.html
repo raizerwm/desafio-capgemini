@@ -1,0 +1,49 @@
+<div class="col-md-6">
+  <h2 class="text-center">Change User Contact</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="nome">Nome do Anúncio:</label>
+      <input formControlName="nome" placeholder="Nome do Cliente" name="nome" class="form-control" id="nome">
+      <div class="feedback-red" *ngIf="isInvalid('nome')">
+        Nome do Anuncio is empty.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cliente">Cliente:</label>
+      <input formControlName="cliente" placeholder="Cliente" name="cliente" class="form-control" id="cliente">
+      <div class="feedback-red" *ngIf="isInvalid('cliente')">
+        Cliente is empty.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inicio">Data do Início:</label>
+      <input formControlName="inicio" placeholder="Data de Início" name="inicio" class="form-control" id="inicio">
+      <div class="feedback-red" *ngIf="isInvalid('inicio')">
+        Data de Início is empty.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="termino">Data de Término:</label>
+      <input formControlName="termino" placeholder="Data de Término" name="termino" class="form-control" id="termino">
+      <div class="feedback-red" *ngIf="isInvalid('inicio')">
+        Data de Término is empty.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="investimento">Investimento por Dia:</label>
+      <input formControlName="investimento" placeholder="Investimento por Dia" name="investimento" class="form-control" id="investimento">
+      <div class="feedback-red" *ngIf="isInvalid('inicio')">
+        Investimento por Dia is empty.
+      </div>
+    </div>
+    
+
+    <button button [disabled]="addForm.invalid" class="btn btn-success">Submit</button>
+    <button class="btn btn-danger ml-2 " (click)="onCancel()">Cancel</button>
+  </form>
+</div>
